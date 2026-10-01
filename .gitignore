@@ -1,0 +1,65 @@
+# ===== Makefile =====
+build/
+out/
+obj/
+bin/
+*.o
+*.d
+*.elf
+*.bin
+*.hex
+*.map
+*.lst
+*.su
+*.sym
+*.dis
+
+# ===== Зависимости =====
+deps/
+
+# ===== Библиотеки =====
+*.a
+*.lib
+*.so
+*.dylib
+*.dll
+
+# ===== STM32CubeMX =====
+*.ioc.bak
+*.mxproject
+
+# ===== VS Code =====
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/c_cpp_properties.json
+*.code-workspace
+
+# ===== C/C++ tooling =====
+.cache/
+compile_commands.json
+.ccls-cache/
+.clangd/
+
+# ===== Отладка =====
+*.log
+JLinkLog.txt
+JLinkSettings.ini
+openocd.log
+gdb.txt
+core
+vgcore.*
+
+# ===== ОС =====
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ===== Прочее =====
+*.tmp
+*.bak
+*.orig
+*.rej
+*~
