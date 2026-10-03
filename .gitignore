@@ -1,8 +1,14 @@
-# ===== Makefile =====
+# ===== Сборка CMake =====
 build/
 out/
-obj/
-bin/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+compile_commands.json
+Makefile
+
+# ===== Артефакты компиляции =====
 *.o
 *.d
 *.elf
@@ -14,32 +20,24 @@ bin/
 *.sym
 *.dis
 
-# ===== Зависимости =====
-deps/
-
 # ===== Библиотеки =====
 *.a
 *.lib
 *.so
-*.dylib
-*.dll
 
-# ===== STM32CubeMX =====
+# ===== STM32CubeMX / CubeCLT =====
+.settings/
+.metadata/
+.mxproject
 *.ioc.bak
 *.mxproject
 
-# ===== VS Code =====
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-!.vscode/c_cpp_properties.json
+# ===== VS Code (игнорируем целиком) =====
+.vscode/
 *.code-workspace
 
-# ===== C/C++ tooling =====
+# ===== Прочий tooling кэш =====
 .cache/
-compile_commands.json
 .ccls-cache/
 .clangd/
 
@@ -52,12 +50,12 @@ gdb.txt
 core
 vgcore.*
 
-# ===== ОС =====
+# ===== Мусор ОС =====
 .DS_Store
 Thumbs.db
 desktop.ini
 
-# ===== Прочее =====
+# ===== Временные файлы =====
 *.tmp
 *.bak
 *.orig
