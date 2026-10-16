@@ -47,7 +47,6 @@ JLinkLog.txt
 JLinkSettings.ini
 openocd.log
 gdb.txt
-core
 vgcore.*
 
 # ===== Мусор ОС =====
