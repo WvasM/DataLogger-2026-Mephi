@@ -43,10 +43,30 @@ target_link_directories(${CMAKE_PROJECT_NAME} PRIVATE
 )
 
 # Add sources to executable
+# Add sources to executable
 target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     ${CMAKE_SOURCE_DIR}/Core/App/app.c
     ${CMAKE_SOURCE_DIR}/Core/App/multi_button/button.c
     ${CMAKE_SOURCE_DIR}/Drivers/lwbtn/lwbtn.c
+
+    # --- Драйвер ST7735 (LCD) ---
+    ${CMAKE_SOURCE_DIR}/Drivers/st7735/LCD/lcd.c
+    ${CMAKE_SOURCE_DIR}/Drivers/st7735/LCD/images.c
+
+    # --- Библиотека UGUI ---
+    ${CMAKE_SOURCE_DIR}/Drivers/st7735/UGUI/ugui.c
+    ${CMAKE_SOURCE_DIR}/Drivers/st7735/UGUI/ugui_button.c
+    ${CMAKE_SOURCE_DIR}/Drivers/st7735/UGUI/ugui_checkbox.c
+    ${CMAKE_SOURCE_DIR}/Drivers/st7735/UGUI/ugui_image.c
+    ${CMAKE_SOURCE_DIR}/Drivers/st7735/UGUI/ugui_progress.c
+    ${CMAKE_SOURCE_DIR}/Drivers/st7735/UGUI/ugui_textbox.c
+
+    # --- Шрифты UGUI (автоматический сбор всех .c файлов из папки Fonts) ---
+    ${CMAKE_SOURCE_DIR}/Drivers/st7735/UGUI/Fonts/font_10x16.c
+    ${CMAKE_SOURCE_DIR}/Drivers/st7735/UGUI/Fonts/font_12x16.c
+    ${CMAKE_SOURCE_DIR}/Drivers/st7735/UGUI/Fonts/font_16x26.c
+    ${CMAKE_SOURCE_DIR}/Drivers/st7735/UGUI/Fonts/font_8x12.c
+    ${CMAKE_SOURCE_DIR}/Drivers/st7735/UGUI/Fonts/arial_10X13_cyrillic.c
 )
 
 # Add include paths
@@ -54,7 +74,14 @@ target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
     ${CMAKE_SOURCE_DIR}/Core/Inc
     ${CMAKE_SOURCE_DIR}/Core/Inc/app
     ${CMAKE_SOURCE_DIR}/Drivers
+    ${CMAKE_SOURCE_DIR}/Drivers/lwbtn
+    
+    # --- Пути к заголовкам ST7735 и UGUI ---
+    ${CMAKE_SOURCE_DIR}/Drivers/st7735/LCD
+    ${CMAKE_SOURCE_DIR}/Drivers/st7735/UGUI
+    ${CMAKE_SOURCE_DIR}/Drivers/st7735/UGUI/Fonts
 )
+
 
 # Add project symbols (macros)
 target_compile_definitions(${CMAKE_PROJECT_NAME} PRIVATE
