@@ -22,6 +22,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "app/app.h"
+#include "ds18b20.h" //драйвер для датчика темпы
 #include "lcd.h"   // Драйвер ST7735
 #include "ugui.h"
 /* USER CODE END Includes */
@@ -44,11 +45,12 @@
 /* Private variables ---------------------------------------------------------*/
 SPI_HandleTypeDef hspi1;
 
+TIM_HandleTypeDef htim1;
 TIM_HandleTypeDef htim3;
 TIM_HandleTypeDef htim6;
 
 /* USER CODE BEGIN PV */
-
+float current_temperature = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -98,6 +100,7 @@ int main(void)
   MX_SPI1_Init();
   /* USER CODE BEGIN 2 */
   HAL_TIM_Encoder_Start(&htim3, TIM_CHANNEL_ALL);
+  DS18B20_Init(&htim1);       // Связываем датчик с таймером
   /* USER CODE END 2 */
 
   /* Infinite loop */
