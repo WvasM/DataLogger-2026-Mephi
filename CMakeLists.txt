@@ -48,10 +48,13 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     ${CMAKE_SOURCE_DIR}/Core/App/app.c
     ${CMAKE_SOURCE_DIR}/Core/App/multi_button/button.c
     ${CMAKE_SOURCE_DIR}/Drivers/lwbtn/lwbtn.c
-
+    
     # --- Драйвер ST7735 (LCD) ---
     ${CMAKE_SOURCE_DIR}/Drivers/st7735/LCD/lcd.c
     ${CMAKE_SOURCE_DIR}/Drivers/st7735/LCD/images.c
+
+    # --- Драйвер ds18b20 (датчик температуры) ---
+    ${CMAKE_SOURCE_DIR}/Drivers/ds18b20/ds18b20.c
 
     # --- Библиотека UGUI ---
     ${CMAKE_SOURCE_DIR}/Drivers/st7735/UGUI/ugui.c
@@ -80,6 +83,10 @@ target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
     ${CMAKE_SOURCE_DIR}/Drivers/st7735/LCD
     ${CMAKE_SOURCE_DIR}/Drivers/st7735/UGUI
     ${CMAKE_SOURCE_DIR}/Drivers/st7735/UGUI/Fonts
+    
+    # --- Пути к датчику температуры ---
+    ${CMAKE_SOURCE_DIR}/Drivers/ds18b20
+
 )
 
 
