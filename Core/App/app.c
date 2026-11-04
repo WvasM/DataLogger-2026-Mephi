@@ -1,9 +1,10 @@
 #include "app/button.h"
+#include "ds18b20.h" //драйвер датчика температуры
 #include "main.h"
 #include "lcd.h"   // Драйвер ST7735
 #include "ugui.h"
 #include <stdio.h>
-
+float current_temperature = 0.0f; //глобальная переменная для датчика температуры
 
 void super_loop(void) {
     char buf[24];
@@ -11,6 +12,8 @@ void super_loop(void) {
 
     while (1) {
         rawCounterProcess();
+
+        current_temperature = DS18B20_ReadTemperature(); //опрос датчика температуры
 
         if (HAL_GetTick() - last >= 100) {
             last = HAL_GetTick();
