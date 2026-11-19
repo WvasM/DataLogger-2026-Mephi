@@ -14,7 +14,9 @@ static void Set_Pin_Output(void) {
     GPIO_InitTypeDef GPIO_InitStruct = {0};
     GPIO_InitStruct.Pin = DS18B20_PIN;
     GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_OD;
-    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    /* Встроенная подтяжка (~40 кОм): без датчика линия не висит в воздухе
+     * и не даёт ложный ответ. Внешний резистор 4.7 кОм всё равно нужен. */
+    GPIO_InitStruct.Pull = GPIO_PULLUP;
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
     HAL_GPIO_Init(DS18B20_PORT, &GPIO_InitStruct);
 }
