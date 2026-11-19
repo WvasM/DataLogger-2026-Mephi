@@ -15,7 +15,8 @@ void Geiger_Init(void){
     __HAL_RCC_SYSCFG_CLK_ENABLE();
 
     GPIO_InitStruct.Pin = GEIGER_PIN;
-    GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+    /* RadiationD v1.1 (CAJOE): VIN в покое высокий, импульс частицы — вниз */
+    GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     HAL_GPIO_Init(GEIGER_GPIO_PORT, &GPIO_InitStruct);
 
