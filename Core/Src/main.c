@@ -50,7 +50,7 @@ TIM_HandleTypeDef htim3;
 TIM_HandleTypeDef htim6;
 
 /* USER CODE BEGIN PV */
-float current_temperature = 0;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/

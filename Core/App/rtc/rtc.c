@@ -1,5 +1,6 @@
-#include "Inc/app/rtc.h"
-#include "Inc/main.h"
+#include "app/rtc.h"
+#include "main.h"
+#include <stdio.h>
 
 static uint32_t s_uptime_ms = 0;
 static uint32_t s_last_tick = 0;
@@ -48,5 +49,6 @@ void Time_ToParts(uint32_t ms, TimeParts *out){
 void Time_Format(uint32_t ms, char *buf){
     TimeParts p;
     Time_ToParts(ms,&p);
-    sprinf(buf,"%02lu:%02d:%02d.%03d",(unsigned long)p.h, p.m, p.s, p.ms);
+    snprintf(buf, TIME_FMT_BUF_SIZE, "%02lu:%02lu:%02lu.%03lu",
+             (unsigned long)p.h, (unsigned long)p.m, (unsigned long)p.s, (unsigned long)p.ms);
 }

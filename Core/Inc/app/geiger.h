@@ -1,7 +1,7 @@
 #ifndef GEIGER_H
 #define GEIGER_H
 
-#include "Inc/main.h"
+#include "main.h"
 
 void Geiger_Init(void);
 uint32_t Geiger_GetCPS(void);

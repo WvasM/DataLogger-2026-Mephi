@@ -5,8 +5,8 @@
 #include "ugui.h"
 #include <stdio.h>
 float current_temperature = 0.0f; //глобальная переменная для датчика температуры
-#include "Inc/app/geiger.h"
-#include "Inc/app/rtc.h"
+#include "app/geiger.h"
+#include "app/rtc.h"
 
 void super_loop(void) {
     char buf[24];
@@ -37,7 +37,7 @@ void super_loop(void) {
             LCD_PutStr(10, 50, buf, FONT_8X12, C_WHITE, C_BLACK);
 
             uint32_t ms = Time_GetElapsedMs();
-            Time_Format(uint32_t ms, char *time_buf);
+            Time_Format(ms, time_buf);
         }
     }
 }

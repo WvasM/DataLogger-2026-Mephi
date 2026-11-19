@@ -1,5 +1,5 @@
-#include "Inc/main.h"
-#include "Inc/app/geiger.h"
+#include "main.h"
+#include "app/geiger.h"
 
 #define CPM_PER_USVH 123.147f
 #define TUBE_BACKGROUND_CPM 12.0f
@@ -7,7 +7,7 @@
 
 volatile uint32_t pulse_count = 0;
 
-void Geiger_Init(){
+void Geiger_Init(void){
     GPIO_InitTypeDef GPIO_InitStruct = {0};
 
     __HAL_RCC_GPIOB_CLK_ENABLE();
@@ -25,7 +25,7 @@ void Geiger_Init(){
 }
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
-    if(GPIO_Pin = GEIGER_PIN){
+    if(GPIO_Pin == GEIGER_PIN){
         pulse_count++;
     }
 }
@@ -47,7 +47,7 @@ float Geiger_GetCPM(){
 
 float Geiger_GetUSVH(){
     float usvh;
-    float cpm = Geiger_GetCMS();
+    float cpm = Geiger_GetCPM();
     if(cpm > TUBE_BACKGROUND_CPM){
         usvh = (cpm - TUBE_BACKGROUND_CPM) / CPM_PER_USVH;
     } else {

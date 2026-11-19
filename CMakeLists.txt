@@ -47,6 +47,8 @@ target_link_directories(${CMAKE_PROJECT_NAME} PRIVATE
 target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     ${CMAKE_SOURCE_DIR}/Core/App/app.c
     ${CMAKE_SOURCE_DIR}/Core/App/multi_button/button.c
+    ${CMAKE_SOURCE_DIR}/Core/App/geiger/geiger.c
+    ${CMAKE_SOURCE_DIR}/Core/App/rtc/rtc.c
     ${CMAKE_SOURCE_DIR}/Drivers/lwbtn/lwbtn.c
     
     # --- Драйвер ST7735 (LCD) ---

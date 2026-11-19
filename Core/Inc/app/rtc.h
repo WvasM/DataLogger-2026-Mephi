@@ -3,6 +3,8 @@
 
 #include <stdint.h>
 
+#define TIME_FMT_BUF_SIZE 16  /* "hh:mm:ss.mmm" + запас */
+
 typedef struct {
     uint32_t h, m, s, ms;
 } TimeParts;
