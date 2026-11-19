@@ -69,6 +69,8 @@ void Error_Handler(void);
 #define ST7789_SPI_PORT_GPIO_Port GPIOB
 #define LCD_RST_Pin GPIO_PIN_7
 #define LCD_RST_GPIO_Port GPIOB
+#define GEIGER_PIN GPIO_PIN_13
+#define GEIGER_GPIO_PORT GPIOB
 
 /* USER CODE BEGIN Private defines */
 
