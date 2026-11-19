@@ -24,7 +24,8 @@ void super_loop(void) {
 
         rawCounterProcess();
 
-        current_temperature = DS18B20_ReadTemperature(); //опрос датчика температуры
+        DS18B20_Process();                             // неблокирующий опрос датчика
+        current_temperature = DS18B20_GetTemperature();
         if(HAL_GetTick() - last_1s >= 1000){
             cps = Geiger_GetCPS();
             cpm = Geiger_GetCPM();
